@@ -29,28 +29,7 @@ export default function SocialLink() {
             ),
            href: "https://mail.google.com/mail/?view=cm&fs=1&to=sgrj414@gmail.com"
         },
-        // {
-        //     id: 4,
-        //     child: (
-        //         <>Instagram <FaInstagram size={30} /></>
-        //     ),
-        //     href: "https://www.instagram.com/thecodergroup"
-        // },
-    
-        // {
-        //     id: 5,
-        //     child: (
-        //         <>LeetCode <SiLeetcode size={30} /></>
-        //     ),
-        //     href:"https://leetcode.com/u/appu_2024/"
-        // },
-        // {
-        //     id: 6,
-        //     child: (
-        //         <>CodeChef <SiCodechef size={30} /></>
-        //     ),
-        //     href:"https://www.codechef.com/users/apoorva2024"
-        // },
+
         {
             id: 7,
             child: (
