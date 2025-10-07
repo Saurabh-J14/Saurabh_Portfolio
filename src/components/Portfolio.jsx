@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import WeatherApp from '../assets/portfolio/ch.jpg';
 import spotifyClone from '../assets/portfolio/sls.jpg';
 import home from '../assets/portfolio/ho.jpg';
@@ -8,6 +8,7 @@ import { LiaEyeSolid } from "react-icons/lia";
 import wanderlust from '../assets/portfolio/wanderlust.png'
 import clock from '../assets/portfolio/clock.png'
 import webpage from '../assets/portfolio/webpage.png'
+import { TypewriterEffect, TypewriterEffectSmooth } from './ui/typewriter-effect';
 
 export default function Portfolio() {
   const portfolios = [
@@ -16,27 +17,27 @@ export default function Portfolio() {
       src: spotifyClone,
       title: "CHOR(ios)"
       ,
-      link:"https://apps.apple.com/in/app/chor/id6475621785",
-      tech:"XCode | Swift | MVVM | UIKit | Swift UI | Xcode | iOS Framework | Firebase",
-      color:"green"
+      link: "https://apps.apple.com/in/app/chor/id6475621785",
+      tech: "XCode | Swift | MVVM | UIKit | Swift UI | Xcode | iOS Framework | Firebase",
+      color: "green"
     },
     {
       id: 2,
       src: WeatherApp,
       title: "HOOK(ios)"
       ,
-      link:"https://apps.apple.com/in/app/hookmena/id6503940447",
-      tech:"XCode | Swift | MVVM | UIKit | Swift UI | Xcode | iOS Framework | Firebase",
-      color:"green"
+      link: "https://apps.apple.com/in/app/hookmena/id6503940447",
+      tech: "XCode | Swift | MVVM | UIKit | Swift UI | Xcode | iOS Framework | Firebase",
+      color: "green"
     },
     {
       id: 3,
       src: home,
       title: "SalesNet(Android)"
       ,
-      link:"https://play.google.com/store/apps/details?id=com.techlabs.salesnet",
-        tech:"Kotlin | Xml | Room Database | Firebase | Rest Api | MVVM",
-        color:"green"
+      link: "https://play.google.com/store/apps/details?id=com.techlabs.salesnet",
+      tech: "Kotlin | Xml | Room Database | Firebase | Rest Api | MVVM",
+      color: "green"
     },
     // {
     //   id: 4,
@@ -53,17 +54,17 @@ export default function Portfolio() {
       src: spotifyClone,
       title: "CHOR(android)"
       ,
-      link:"https://play.google.com/store/apps/details?id=com.app.chor",
-        tech:"Kotlin| Xml | Room Database | Firebase | Rest Api| MVVM",
-        color:"green"
+      link: "https://play.google.com/store/apps/details?id=com.app.chor",
+      tech: "Kotlin| Xml | Room Database | Firebase | Rest Api| MVVM",
+      color: "green"
     },
     {
       id: 5,
       src: WeatherApp,
       title: "HOOK(android)",
-      link:"https://play.google.com/store/apps/details?id=com.hookUser",
-        tech:"Kotlin| Xml | Room Database | Firebase | Rest Api| MVVM",
-        color:"green"
+      link: "https://play.google.com/store/apps/details?id=com.hookUser",
+      tech: "Kotlin| Xml | Room Database | Firebase | Rest Api| MVVM",
+      color: "green"
     },
 
     // {
@@ -75,6 +76,25 @@ export default function Portfolio() {
     // },
   ];
 
+  const lines = [
+    { text: "Discover some of my featured projects." },
+    { text: "Craft beautiful UI/UX designs." },
+    { text: "Integrate robust backend solutions." },
+    { text: "Work with Firebase, RoomDB, and APIs." },
+    { text: "Deliver apps for both Android and iOS." },
+    { text: "Bring your ideas to life seamlessly." },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Change line every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % lines.length);
+    }, 4000); // change line every 4 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div
       name='portfolio'
@@ -82,15 +102,24 @@ export default function Portfolio() {
     >
       <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full min-h-screen'>
         <div className='pb-8'>
-          <p className='text-4xl font-bold inline border-b-4 border-gray-500'>
+          {/* <p className='text-4xl font-bold inline border-b-4 border-gray-500'>
             Portfolio
-          </p>
-          <p className='py-6'>Check out some of my work right here</p>
+          </p> */}
+          <div className="py-6 text-2xl text-[#3489f1]">
+            <TypewriterEffectSmooth
+              key={currentIndex}
+              words={[lines[currentIndex]]}
+              className="text-xl text-[#3489f1] font-semibold text-center"
+              cursorClassName="bg-[#3489f1] w-1 h-6"
+            />
+          </div>
+
+
         </div>
 
         {/* cards */}
         <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8'>
-          {portfolios.map(({ id, src, title,link ,tech,color}) => (
+          {portfolios.map(({ id, src, title, link, tech, color }) => (
             <div key={id} className='shadow-md shadow-gray-600 rounded-lg'>
               <img
                 src={src}
@@ -114,23 +143,23 @@ export default function Portfolio() {
 
 
                 <div className='w-full px-6 py-2 my-2 duration-200 hover:scale-105' >
-                  
-                <a
-                            href={link}
-                            className='flex justify-between items-center w-full text-white'
-                          
-                          
-                            target='_blank'  rel="noreferrer"
-                        >
-                          
-                          App Store <LiaEyeSolid />
-                        </a>  
-                      
+
+                  <a
+                    href={link}
+                    className='flex justify-between items-center w-full text-white'
+
+
+                    target='_blank' rel="noreferrer"
+                  >
+
+                    App Store <LiaEyeSolid />
+                  </a>
+
                 </div>
-             
-                
-                
-                
+
+
+
+
               </div>
             </div>
           ))}
