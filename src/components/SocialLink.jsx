@@ -15,13 +15,13 @@ export default function SocialLink() {
             href: "https://www.linkedin.com/in/saurabh-jaiswal-300b13218",
             style: 'rounded-tr-md'
         },
-        // {
-        //     id: 2,
-        //     child: (
-        //         <>Github <FaGithub size={30} /></>
-        //     ),
-        //     href: "https://github.com/appusrivastva"
-        // },
+        {
+            id: 2,
+            child: (
+                <>Github <FaGithub size={30} /></>
+            ),
+            href: "https://github.com/Saurabh-J14"
+        },
         {
             id: 3,
             child: (
