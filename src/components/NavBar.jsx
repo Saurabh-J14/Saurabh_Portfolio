@@ -16,7 +16,7 @@ export default function NavBar() {
     },
     {
       id: 3,
-      link: "portfolio",
+      link: "projects",
     },
     {
       id: 4, // Corrected the ID from 5 to 4 for sequential order

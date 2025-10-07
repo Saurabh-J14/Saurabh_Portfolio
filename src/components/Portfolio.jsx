@@ -9,6 +9,7 @@ import wanderlust from '../assets/portfolio/wanderlust.png'
 import clock from '../assets/portfolio/clock.png'
 import webpage from '../assets/portfolio/webpage.png'
 import { TypewriterEffect, TypewriterEffectSmooth } from './ui/typewriter-effect';
+import { Typewriter } from 'react-simple-typewriter';
 
 export default function Portfolio() {
   const portfolios = [
@@ -76,22 +77,20 @@ export default function Portfolio() {
     // },
   ];
 
-  const lines = [
-    { text: "Discover some of my featured projects." },
-    { text: "Craft beautiful UI/UX designs." },
-    { text: "Integrate robust backend solutions." },
-    { text: "Work with Firebase, RoomDB, and APIs." },
-    { text: "Deliver apps for both Android and iOS." },
-    { text: "Bring your ideas to life seamlessly." },
+ const lines = [
+    "Discover some of my featured projects.",
+    "Craft beautiful UI designs.",
+    "Work with Firebase, RoomDB, and APIs.",
+    "Deliver apps for both Android and iOS.",
+    "Bring your ideas to life seamlessly.",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Change line every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % lines.length);
-    }, 4000); // change line every 4 seconds
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -105,14 +104,19 @@ export default function Portfolio() {
           {/* <p className='text-4xl font-bold inline border-b-4 border-gray-500'>
             Portfolio
           </p> */}
-          <div className="py-6 text-2xl text-[#3489f1]">
-            <TypewriterEffectSmooth
-              key={currentIndex}
-              words={[lines[currentIndex]]}
-              className="text-xl text-[#3489f1] font-semibold text-center"
-              cursorClassName="bg-[#3489f1] w-1 h-6"
-            />
-          </div>
+         <div className="py-6 text-center">
+      <span className="text-3xl max-w-screen-lg sm:text-2xl md:text-3xl font-semibold">
+        <Typewriter
+          words={lines}
+          loop={0} 
+          cursor
+          cursorStyle="|"
+          typeSpeed={70}
+          deleteSpeed={50}
+          delaySpeed={2000}
+        />
+      </span>
+    </div>
 
 
         </div>
