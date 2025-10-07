@@ -1,0 +1,19 @@
+@media (max-width: 480px) {
+  
+ 
+  .Image{
+    height: fit-content;
+  }
+}
+
+  /* .Image{
+    height: 500px;
+  } */
+
+@media (min-width: 768px) {
+  
+ 
+  .Image{
+    height:500px;
+  }
+}  

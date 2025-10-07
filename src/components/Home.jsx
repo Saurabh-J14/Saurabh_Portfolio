@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import mypic from '../assets/sj.jpg';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import { Link } from 'react-scroll';
+import "./Home.css";
 
 export default function Home() {
   const [text, setText] = useState("I'm a Mobile App Developer");
@@ -31,7 +32,7 @@ export default function Home() {
       <div
         className='max-w-screen-lg mx-auto flex flex-col items-center justify-center h-full px-4 md:flex-row'
       >
-        <div className='flex flex-col justify-center items-center h-full'>
+        <div className='flex flex-col justify-center items-center h-full mobile-center'>
           <h2 className={`text-4xl sm:text-7xl max-w-screen-sm font-bold text-white transition-opacity duration-500 ${fadeIn ? 'opacity-100' : 'opacity-0'}`}>
             {text}
           </h2>
@@ -41,7 +42,7 @@ export default function Home() {
               <button
                 className='group text-white w-fit px-6 py-3 my-2 flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-blue-500 cursor-pointer'
               >
-                Portfolio
+                Projects
                 <span className='group-hover:rotate-90 duration-300'>
                   <MdOutlineKeyboardArrowRight size={25} className='ml-1' />
                 </span>
@@ -50,7 +51,7 @@ export default function Home() {
           </div>
         </div>
         <div>
-          <img src={mypic} alt="my profile" className='rounded-2xl mx-auto w-2/3 md:w-full h-[500px]' />
+          <img src={mypic} alt="my profile" className='rounded-2xl mx-auto w-2/3 md:w-full Image' />
         </div>
       </div>
     </div>
